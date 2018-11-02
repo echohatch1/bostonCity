@@ -1,0 +1,239 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+
+/*  apply a natural box layout model to all elements  */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/* ------------- BODY ------------- */
+body {
+	font-family: $defaultFont;
+	font-size: 16px;
+	font-weight: $normalWeight;
+    min-height: 100%;
+    position: relative;
+
+    input {
+        border-radius: 2px;
+    }
+    a {
+        text-decoration: none;
+        color: $secondaryColor;
+        font-weight: 500;
+    }
+}
+
+
+/* ------------- HEADER ------------- */
+header {
+    max-width: $maxWidth;
+    padding: $gutter;
+    height: 170px;
+    background-image: url("../images/boston.jpg");
+    background-repeat: no-repeat;
+    .header-div {
+        width: 100%;
+        .header-text {
+            position: absolute;
+            top: 40px;
+            h1 {
+                padding-top: 0;
+                font-size: 3rem;
+                font-family: 'Pacifico', cursive;
+            }
+        }
+        
+    }
+
+    
+	h1{
+        font-size: 2rem;
+        color: $fontColor;
+    } //end h1
+    
+	h2{
+        font-size: 1.2rem;
+        margin-top: 1.5rem;
+        color: $fontColor;
+        
+    } //end h2
+    
+
+} //end header
+
+
+
+/*  ------------- MAIN -------------  */
+
+main {
+    margin-top: $gutter;
+    min-height: 20rem;
+    max-width: $maxWidth;
+    #main-div {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        padding-left: $gutter;
+        padding-right: $gutter;
+        .myslider {
+            position: relative;
+            grid-column: 1 / span 4;
+            grid-row: 1;
+        }
+        
+        .h1-div {
+            grid-column: 1 / span 4;
+        }
+        
+        #teaser1 {
+            grid-column: 1 / span 4;
+        }
+        
+        #teaser2 {
+            grid-column: 1 / span 4;
+        }
+        
+        #teaser3 {
+            grid-column: 1 / span 4;
+        }
+        
+        #teaser4 {
+            grid-column: 1 / span 4;
+        }
+        
+        .teaser {
+            display: block;
+            position: relative;
+            text-align: center;
+            span {
+                position: absolute;
+                display: block;
+                top: 0;
+                margin-top: $guttertrpl * 2;
+                width: 100%;
+                color: $secondaryColor;
+                font-size: 2rem;
+                font-weight: $boldWeight;
+                i {
+                    font-size: 3rem;
+                    margin-bottom: $guttertrpl;
+                    color: $fontColor;
+                }
+            }
+            img {
+                display: block;
+                width: 100%;
+            }
+            
+            .coverColor {
+                background-color: $altColor;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                transition: opacity .5s;
+            }
+            
+        }
+        .teaser:hover .coverColor {
+            opacity: .5;
+        }
+        
+
+    }
+    
+} // end main
+
+//slick slider
+.myslider div {
+    width: 100%;
+    img {
+        width: 100%;
+    }
+}
+
+
+
+
+/*  ------------- FOOTER -------------  */
+footer {
+	max-width: $maxWidth;
+    .footer-div {
+        background: $altColor;
+        width: 100%;
+        padding: $gutter;
+        margin-top: $gutter;
+        p {
+            text-align: center;
+            color: $fontColor;
+            font-size: 17px;
+        }
+        a {
+            color: $fontColor;
+            font-size: 17px;
+        }
+        
+    }
+
+} // end footer
+
+.smallNavBar {
+    @include gradient($secondaryColor);
+    max-width: $maxWidth;
+}
+
+.hamburger {
+    display: block;
+    width: 7rem;
+    height: 2.75rem;
+    background-repeat: no-repeat;
+    background-position: 2vw center;
+}
+
+
+.hamburgerOpen {
+    @extend .hamburger;
+    background-image: url(../images/menuOpenWhite.png);
+}
+
+.hamburgerClose {
+    @extend .hamburger;
+    background-image: url(../images/menuCloseBlack.png);
+}
+
+nav {
+    height: 100vh;
+    width: 100%;
+    background: $fontColor;
+    .primaryNav {
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            
+        }
+        li a {
+            display: block;
+            padding: .6rem 2%;
+        }
+        li a:hover {
+        background-color: lighten($secondaryColor, 20%);
+        }
+        .active {
+                background: $secondaryColor;
+                color: $fontColor;
+            }
+    }
+
+}//end nav
+
+
+
+/*----- Clearfix: Force an Element not to collapse -----*/
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}

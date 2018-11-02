@@ -1,0 +1,17 @@
+$primaryColor: #8B95A6;
+$secondaryColor: #f49842;
+$altColor: #222534;
+$fontColor: #eaeaea;
+
+$defaultFont: 'Raleway', sans-serif;;
+$normalWeight: 300;
+$boldWeight: 500;
+
+$maxWidth: 64rem;
+$gutter: 2%;
+$gutterdbl: (2 * $gutter);
+$guttertrpl: (3 * $gutter);
+
+@mixin gradient($color) {
+    background-image: linear-gradient(to bottom, $color, darken($color, 30%));
+}
